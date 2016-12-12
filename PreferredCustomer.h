@@ -1,11 +1,22 @@
+// Todd Oakes submission for the Programming Fundamentals II: Programming Portion.
+// Completed 12/12/2016
+//  author: Todd Oakes
+//
 #pragma once
 #include "CustomerData.h"
+//contains a CustomerData and a purchasesAmount and a discountLevel.
 class PreferredCustomer :
 	public CustomerData
 {
 private:
 	double purchasesAmount;
 	double discountLevel;
+
+	//if Purchase $2000, 10% discount
+	//            $1500, 7% discount
+	//            $1000, 6% discount
+	//            $ 500, 5% discount
+	//          < $ 500 = no discount.
 	void setDiscountLevel()
 	{
 		if (purchasesAmount > 2000 )
@@ -44,10 +55,14 @@ public:
 	{
 		purchasesAmount = purchases;
 	}
+
+	//unused
 	void addPurchaseAmount(double amount)
 	{
 		purchasesAmount += amount;
 	}
+
+	//unused
 	void addRefundAmount(double refund)
 	{
 		purchasesAmount -= refund;
@@ -61,8 +76,8 @@ public:
 	}
 	double getDiscountLevel()
 	{
-		setDiscountLevel();
-		return discountLevel;
+		setDiscountLevel(); //re-calculates discount level based on current putchases.
+		return discountLevel; // and returns the re-calculated level.
 	}
 
 };

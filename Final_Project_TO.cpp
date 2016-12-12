@@ -1,4 +1,6 @@
-// Final_Project_TO.cpp : Defines the entry point for the console application.
+// Todd Oakes submission for the Programming Fundamentals II: Programming Portion.
+// Completed 12/12/2016
+//  author: Todd Oakes
 //
 
 #include "PreferredCustomer.h"
@@ -12,6 +14,32 @@ using namespace std;
 const int MAX_CUSTOMERS = 50;
 const int ID_NUMBER_WIDTH = 5; // "##.: ", max customer ID plus 3.
 const int COLUMN_WIDTH = 14; //in characters
+
+void clearScreen(int x);  //displays x newlines
+void clearScreen();		  //displays a bunch of newlines
+
+CustomerData newCustomer(); //uses console prompts to ask for information and returns a CustomerData.
+PreferredCustomer newPreferredCustomer();	//uses console prompts to ask for information and returns a PreferredCustomer.
+
+void displayFullCustomerData(CustomerData customer); //displays all the data we have on this customer in multiline format.
+void displayFullCustomerData(PreferredCustomer customer); //displays all the data we have on this preferred customer.
+
+int displayEditPrompt(); //displays the "return to main menu" line, and gets user choice
+
+bool getMailPref(string pref); //if the input starts with "N" or "n", return false.  Otherwise, will be true.
+
+CustomerData editCustomerData(CustomerData customer, int choice); //edits a single customer
+PreferredCustomer editCustomerData(PreferredCustomer customer, int choice); //edits a single Preferred customer
+
+double validate(double n); //if N < 0, will prompt user to re-enter until positive.
+void displayCustomerChoice(); //prints the table header
+string setwidth(string s); // sets the width of the string to COLUMN_WIDTH
+
+void displayCustomerChoice(CustomerData person); //displays First Name, Last Name, Phone Number using setwidth.
+int menu(CustomerData data[MAX_CUSTOMERS], int currentAmountOfCustomers); //displays all the customers
+int menu(PreferredCustomer data[MAX_CUSTOMERS], int currentAmountOfCustomers); //displays all the PreferredCustomers (using displayCustomerChoice)
+
+//TODO: write the rest of the headers
 
 //displays x newlines
 void clearScreen(int x)
